@@ -1,4 +1,4 @@
-# Jenskins Shared Libraries
+# Jenkins Shared Libraries
 
 This repo contains shared library code that may be imported in Jenkins pipeline projects. Code herein is in many cases Statoil specific. It is suggested to transform boilerplate and/or repetitive snippets found in `Jenkinsfile` into e.g. global methods that may be invoked as _steps_ in declarative Jenkins pipelines. 
 
