@@ -6,7 +6,12 @@ def call(Map<String, Object> args) {
     def result = []
     for (def key : filterKeys) {
         if (params.containsKey(key)) {
-            result.add("set(${key} \"${params.get(key)}\" CACHE STRING \"n\")")
+            def paramValue = params.get(key)
+            if (paramValue in Boolean) {
+                result.add("set(${key} ${paramValue ? "ON" : "OFF"} CACHE BOOL \"n\")")
+            } else /*(paramValue in String)*/ {
+                result.add("set(${key} \"${paramValue}\" CACHE STRING \"n\")")
+            }
         }
     }
     return result
