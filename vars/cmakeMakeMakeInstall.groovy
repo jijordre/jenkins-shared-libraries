@@ -15,8 +15,7 @@ def call(Map<String, Object> args) {
         }
     }
 
-    cmdLine += " && source /project/res/SDP_bashrc"
-    cmdLine += " && cmake" + (cacheFile ? " -C ${cacheFile} " : "") + " .."
+    cmdLine += " && /project/res/x86_64_RH_6/bin/cmake" + (cacheFile ? " -C ${cacheFile} " : "") + " .."
     cmdLine += " && make" + (makeJobs ? " -j ${makeJobs} " : "")
     cmdLine += " && make install"
     sh cmdLine
